@@ -85,7 +85,7 @@ for(i in 1:dim(param_combos)[1]){
   print(paste("K =", param_combos[i,2], ", alpha =", param_combos[i,3]))
 }
 
-### ==== III. Run SNF bootstrap code - found in seperate script ====
+### ==== III. Run SNF bootstrap code ====
 # === 1. Create 1000 randomly resampled IDs with 80% of subjects 
 df_data_type_1 <- df_ex_func
 bootstrap_80 <- purrr::rerun(1000, resample(rownames(df_data_type_1), size=0.8*(dim(df_data_type_1)[1])))
