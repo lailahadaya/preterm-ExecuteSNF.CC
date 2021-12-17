@@ -114,7 +114,7 @@ ExecuteSNF.CC_new_noPlot <- function (W_fused, clusterNum,
 
 ### ==== 5. Bootstrap function ====
 
-bootstrap_SNFcc_silh_hyperparam <- function(df_data_type_1, df_data_type_2, df_data_type_3, K, alpha, Tii) {
+bootstrap_SNFcc_silh_hyperparam <- function(df_data_type_1, df_data_type_2, df_data_type_3, K, alpha, t=20) {
   group_SNF_bootstrap_c2 <- list()
   group_SNF_bootstrap_c3 <- list()
   group_SNF_bootstrap_c4 <- list()
@@ -134,7 +134,7 @@ bootstrap_SNFcc_silh_hyperparam <- function(df_data_type_1, df_data_type_2, df_d
     w.data_type_2 <- affinityMatrix(sq_dist_N_df_data_type_2, K=param_combos[j,2], sigma=param_combos[j,3])
     w.data_type_3 <- affinityMatrix(as.matrix(dist_gower_df_data_type_3), K=param_combos[j,2], sigma=param_combos[j,3])
     # 4. get fused W
-    W_SNF <- SNF(list(w.data_type_1, w.data_type_2, w.data_type_3), K=param_combos[j,2], Tii)
+    W_SNF <- SNF(list(w.data_type_1, w.data_type_2, w.data_type_3), K=param_combos[j,2], t=20)
     # 5. get SNF_CC clusters
     SNF_CC_c2 <- ExecuteSNF.CC_new_noPlot(W_SNF, clusterNum=2, maxK=5, pItem=0.8, reps=1000) 
     SNF_CC_c3 <- ExecuteSNF.CC_new_noPlot(W_SNF, clusterNum=3, maxK=5, pItem=0.8, reps=1000)
@@ -172,7 +172,7 @@ bootstrap_SNFcc_silh_hyperparam <- function(df_data_type_1, df_data_type_2, df_d
 ### ==== 6. Run the bootstrap ====
 # make sure data type 3 is the one with categorical data - this data type will have gowers dist in the code below
 
-bootstrap_groups_and_silhs = bootstrap_SNFcc_silh_hyperparam(df_data_type_1, df_data_type_2, df_data_type_3, K, alpha, Tii=Tii)
+bootstrap_groups_and_silhs = bootstrap_SNFcc_silh_hyperparam(df_data_type_1, df_data_type_2, df_data_type_3, K, alpha, t=20)
 
 
 ### ==== 7. Extract OUTPUT: bootstrap_groups and mean_silh scores ====
