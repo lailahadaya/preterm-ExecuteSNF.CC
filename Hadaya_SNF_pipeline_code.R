@@ -68,9 +68,9 @@ for(i in 1:dim(param_combos)[1]){
   sq_dist_N_df_data_type_1 <- (dist2(as.matrix(N_df_data_type_1), as.matrix(N_df_data_type_1)))^(1/2)
   sq_dist_N_df_data_type_2 <- (dist2(as.matrix(N_df_data_type_2), as.matrix(N_df_data_type_2)))^(1/2)
   dist_gower_df_data_type_3 <- daisy(df_data_type_3, metric = c("gower")) 
-  w.data_type_1 <- affinityMatrix(sq_dist_N_df_data_type_1, K=param_combos[i,2], sigma=param_combos[i,3])
-  w.data_type_2 <- affinityMatrix(sq_dist_N_df_data_type_2, K=param_combos[i,2], sigma=param_combos[i,3])
-  w.data_type_3 <- affinityMatrix(as.matrix(dist_gower_df_data_type_3), K=param_combos[i,2], sigma=param_combos[i,3])
+  w.data_type_1 <- affinityMatrix(sq_dist_N_df_data_type_1, K=param_combos[i,2], sigma=param_combos[i,3]) # sigma is what we also refer to as alpha
+  w.data_type_2 <- affinityMatrix(sq_dist_N_df_data_type_2, K=param_combos[i,2], sigma=param_combos[i,3]) # sigma is what we also refer to as alpha
+  w.data_type_3 <- affinityMatrix(as.matrix(dist_gower_df_data_type_3), K=param_combos[i,2], sigma=param_combos[i,3]) # sigma is what we also refer to as alpha
   W_SNF <- SNF(list(w.data_type_1, w.data_type_2, w.data_type_3), K=param_combos[i,2], t=20)
   estClustNumb <- print(estimateNumberOfClustersGivenGraph(W_SNF, 2:10))
   estClustNumb_paramCombos[1,i] <- estClustNumb$`Eigen-gap best`
