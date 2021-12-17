@@ -70,9 +70,12 @@ param_combos <- data.frame(c(1:length(parameter_combos_alpha)), parameter_combos
 colnames(param_combos) <- c("combo_Num", "K", "alpha")
 
 ### ==== 4. Load functions with plot = NULL =====
+# set plot = "png" instead of NULL, if you get an error message saying:
+# "Error in .External.graphics(C_layout, num.rows, num.cols, mat, as.integer(num.figures),  : 
+#  invalid graphics state
 
 ExecuteCC2_noPlot <- function (clusterNum, d, maxK = 10, clusterAlg = "hc", distance = "pearson", 
-                               title = "ConsensusClusterResult", reps = 1000, pItem = 0.8, 
+                               title = "ConsensusClusterResult", reps = 1000, pItem = 0.8, # set plot = "png" instead of NULL, if you get an error message
                                pFeature = 1, plot = NULL, innerLinkage = "average", finalLinkage = "average", 
                                writeTable = FALSE, weightsItem = NULL, weightsFeature = NULL, 
                                verbose = FALSE, corUse = "everything") 
@@ -87,7 +90,7 @@ ExecuteCC2_noPlot <- function (clusterNum, d, maxK = 10, clusterAlg = "hc", dist
   else temp = d
   originalResult = ConsensusClusterPlus(temp, maxK = maxK, 
                                         clusterAlg = clusterAlg, distance = distance, title = title, 
-                                        reps = reps, pItem = pItem, pFeature = pFeature, plot = NULL, 
+                                        reps = reps, pItem = pItem, pFeature = pFeature, plot = NULL, # set plot = "png" instead of NULL, if you get an error message
                                         innerLinkage = innerLinkage, finalLinkage = finalLinkage, 
                                         writeTable = writeTable, weightsItem = weightsItem, weightsFeature = weightsFeature, 
                                         verbose = verbose, corUse = corUse, seed=123456)
@@ -107,7 +110,7 @@ ExecuteSNF.CC_new_noPlot <- function (W_fused, clusterNum,
   W_fused = as.dist(W_fused)
   result = ExecuteCC2_noPlot(clusterNum = clusterNum, d = W_fused, maxK = maxK, 
                              clusterAlg = "spectralAlg", title = title, reps = reps, 
-                             pItem = pItem, plot = NULL, finalLinkage = finalLinkage)
+                             pItem = pItem, plot = NULL, finalLinkage = finalLinkage) # set plot = "png" instead of NULL, if you get an error message
   result
 }
 
