@@ -104,6 +104,7 @@ list_ALL_bootstraps_c2 =list_ALL_bootstraps_c3 = list() # list with results from
 for (i in 1:1000) {
   list_ALL_bootstraps_c2[[i]] <- as.data.frame(read_excel(paste("run_", i, "param_combo_multi_full_BIG_bootstrap_c2.xlsx", sep ="")))
   list_ALL_bootstraps_c3[[i]] <- as.data.frame(read_excel(paste("run_", i, "param_combo_multi_full_BIG_bootstrap_c3.xlsx", sep ="")))
+  list_ALL_bootstraps_c4[[i]] <- as.data.frame(read_excel(paste("run_", i, "param_combo_multi_full_BIG_bootstrap_c4.xlsx", sep ="")))
 }
 
 ### Groupings: MERGE
@@ -129,7 +130,7 @@ multi_full_c4 <- Reduce(
 
 ### Silh Scores: 
 # LOAD 
-list_ALL_sil_c2 = list_ALL_sil_c3 = list_ALL_sil_c3 = list() # list with results from the 1000 iterations
+list_ALL_sil_c2 = list_ALL_sil_c3 = list_ALL_sil_c4 = list() # list with results from the 1000 iterations
 for (i in 1:1000) {
   list_ALL_sil_c2[[i]] <- as.data.frame(read_excel(paste("run_", i, "param_combo_mean_silh_scores_c2.xlsx", sep =""), col_names=FALSE))
   list_ALL_sil_c3[[i]] <- as.data.frame(read_excel(paste("run_", i, "param_combo_mean_silh_scores_c3.xlsx", sep =""), col_names=FALSE))
@@ -154,7 +155,7 @@ write.xlsx(multi_mean_silh_c4, file = "multi_mean_silh_c4.xlsx")
 
 ### ==== VI. Filter based on silhouette scores: keep highest scoring grouping, from each iteration, only ====
 #data.frame(1st column: number of run, then: 30 rows with the combos, repeated 1000 times, so end up with 30000 rows, 2nd column: index subsample)
-full_silh_data_QC <- data.frame("run_number"=c(1:30000), "seednumber"=c(sort(rep(1:1000,30))), "combo_numb"=rep(1:30, 1000), "K"= rep(param_combos_30[,2], 1000), "alpha"=rep(param_combos_30[,3], 1000), multi_mean_silh_c2, multi_mean_silh_c3, multi_mean_silh_c4)
+full_silh_data_QC <- data.frame("run_number"=c(1:30000), "seednumber"=c(sort(rep(1:1000,30))), "combo_numb"=rep(1:30, 1000), "K"= rep(param_combos[,2], 1000), "alpha"=rep(param_combos[,3], 1000), multi_mean_silh_c2, multi_mean_silh_c3, multi_mean_silh_c4)
 
 # 1. look at keeping one top silh per seednumber (end up with 1000)
 keep_highest_only_full_silh_data_QC_c2 <- full_silh_data_QC %>%
