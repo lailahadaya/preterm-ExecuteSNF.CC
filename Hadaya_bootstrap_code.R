@@ -38,7 +38,7 @@ library(diceR)
 
 args = commandArgs(trailingOnly=TRUE) # This reads input arguments 
 paste0('Seed #', as.numeric(args[1])) # This converts the input to numeric and set as seed
-seednumber = as.numeric(args[1])
+seednumber <- as.numeric(args[1])
 set.seed(seednumber)
 
 #df_data_type_1 <- df_ex_func 
@@ -175,7 +175,7 @@ bootstrap_SNFcc_silh_hyperparam <- function(df_data_type_1, df_data_type_2, df_d
 ### ==== 6. Run the bootstrap ====
 # make sure data type 3 is the one with categorical data - this data type will have gowers dist in the code below
 
-bootstrap_groups_and_silhs = bootstrap_SNFcc_silh_hyperparam(df_data_type_1, df_data_type_2, df_data_type_3, K, alpha, t=20)
+bootstrap_groups_and_silhs <- bootstrap_SNFcc_silh_hyperparam(df_data_type_1, df_data_type_2, df_data_type_3, K, alpha, t=20)
 
 
 ### ==== 7. Extract OUTPUT: bootstrap_groups and mean_silh scores ====
