@@ -1,8 +1,8 @@
 # = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = 
 # Bootstrap code - to run on Rosalind. 
 
-# Study title: "Characterising distinct behavioural subgroups of very preterm born children and 
-#   identifying differences in neonatal structural and functional brain patterns" 
+# Study title: "Characterising distinct subgroups of very preterm born children and 
+#   exploring differences in neonatal structural and functional brain patterns" 
 # Date: 19/11/2021
 # Authors: L Hadaya, K Dimitrakopoulou, L Vanes, D Kanel, S Fenn-Moltu, D Pecheva, G Ball, AD Edwards, 
 # SJ Counsell, M Saqi, D Batalle and C Nosarti
