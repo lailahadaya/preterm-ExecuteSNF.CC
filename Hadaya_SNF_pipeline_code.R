@@ -71,7 +71,7 @@ for(i in 1:dim(param_combos)[1]){
   w.data_type_1 <- affinityMatrix(sq_dist_N_df_data_type_1, K=param_combos[i,2], sigma=param_combos[i,3])
   w.data_type_2 <- affinityMatrix(sq_dist_N_df_data_type_2, K=param_combos[i,2], sigma=param_combos[i,3])
   w.data_type_3 <- affinityMatrix(as.matrix(dist_gower_df_data_type_3), K=param_combos[i,2], sigma=param_combos[i,3])
-  W_SNF <- SNF(list(w.data_type_1, w.data_type_2, w.data_type_3), K=param_combos[i,2], Tii)
+  W_SNF <- SNF(list(w.data_type_1, w.data_type_2, w.data_type_3), K=param_combos[i,2], t=20)
   estClustNumb <- print(estimateNumberOfClustersGivenGraph(W_SNF, 2:10))
   estClustNumb_paramCombos[1,i] <- estClustNumb$`Eigen-gap best`
   estClustNumb_paramCombos[2,i] <- estClustNumb$`Eigen-gap 2nd best`
