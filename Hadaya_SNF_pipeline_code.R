@@ -46,7 +46,7 @@ df_data_type_3 <- df_clin_social_risk # third data type - mixed data type
 
 ### ==== II. Cluster number estimation table creation ====
 #For each combination of SNF hyperparameters K={10, 15, 20, 25, 30} & alpha={0.3,, 0.4, 0.5, 0.6, 0.7, 0.8} 
-#Calculate best and second best C based on eigengap using, estimateNumberOfClustersGivenGraph()
+#Calculate best and second best C based on eigengap and rotation cost using, estimateNumberOfClustersGivenGraph()
 #Choose the cluster numbers C that most combinations agree on and are clinically relevant.
 
 # Set param combinations
