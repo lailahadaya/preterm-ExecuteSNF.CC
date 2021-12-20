@@ -1,5 +1,5 @@
 # = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = 
-# Bootstrap code - to run on Rosalind. 
+# Bootstrap code - to run on an HPC cluster (we used the King's College London Rosalind computing interface: https://rosalind.kcl.ac.uk/) 
 
 # Study title: "Characterising distinct subgroups of very preterm born children and 
 #   exploring differences in neonatal structural and functional brain patterns" 
