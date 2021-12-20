@@ -182,21 +182,21 @@ rownames(c4_GROUPS_highest_silh_only) <- c4_GROUPS_highest_silh_only$ID
 
 #c2
 sub1.c2<- as.data.frame(sapply(c2_GROUPS_highest_silh_only[,-1], as.integer))
-sub2.c2<-array(as.matrix(as.data.frame(sub1.c2)),dim=c(198,1000,1,1),dimnames=list(rownames(sub1.c2),colnames(sub1.c2),"SNF","2"))
+sub2.c2<-array(as.matrix(as.data.frame(sub1.c2)),dim=c(198,1000,1,1),dimnames=list(rownames(sub1.c2),colnames(sub1.c2),"SNF","2")) # N = 198
 cc_c2 <- as.numeric(unlist(consensus_combine(sub2.c2, element = "class")))
-cc_matrix_c2 <- matrix(unlist(consensus_combine(sub2.c2, element = "matrix")), nrow=198, ncol=198)
+cc_matrix_c2 <- matrix(unlist(consensus_combine(sub2.c2, element = "matrix")), nrow=198, ncol=198) # N = 198
 
 #c3
 sub1.c3 <- as.data.frame(sapply(c3_GROUPS_highest_silh_only[,-1], as.integer))
-sub2.c3<-array(as.matrix(as.data.frame(sub1.c3)),dim=c(198,1000,1,1),dimnames=list(rownames(sub1.c3),colnames(sub1.c3),"SNF","3"))
+sub2.c3<-array(as.matrix(as.data.frame(sub1.c3)),dim=c(198,1000,1,1),dimnames=list(rownames(sub1.c3),colnames(sub1.c3),"SNF","3")) # N = 198
 cc_c3 <- as.numeric(unlist(consensus_combine(sub2.c3, element = "class")))
-cc_matrix_c3 <- matrix(unlist(consensus_combine(sub2.c3, element = "matrix")), nrow=198, ncol=198)
+cc_matrix_c3 <- matrix(unlist(consensus_combine(sub2.c3, element = "matrix")), nrow=198, ncol=198) # N = 198
 
 #c4
 sub1.c4 <- as.data.frame(sapply(c4_GROUPS_highest_silh_only[,-1], as.integer))
-sub2.c4 <-array(as.matrix(as.data.frame(sub1.c4)),dim=c(198,1000,1,1),dimnames=list(rownames(sub1.c4),colnames(sub1.c4),"SNF","4"))
+sub2.c4 <-array(as.matrix(as.data.frame(sub1.c4)),dim=c(198,1000,1,1),dimnames=list(rownames(sub1.c4),colnames(sub1.c4),"SNF","4")) # N = 198
 cc_c4 <- as.numeric(unlist(consensus_combine(sub2.c4, element = "class")))
-cc_matrix_c4 <- matrix(unlist(consensus_combine(sub2.c4, element = "matrix")), nrow=198, ncol=198)
+cc_matrix_c4 <- matrix(unlist(consensus_combine(sub2.c4, element = "matrix")), nrow=198, ncol=198) # N = 198
 
 ### ==== VIII. Get Silhouette scores: =======
 
