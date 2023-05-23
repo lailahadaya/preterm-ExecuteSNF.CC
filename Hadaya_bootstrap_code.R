@@ -63,7 +63,7 @@ print(ls(Filter(is.data.frame, mget(ls(pattern="risk$")))))
 
 N= dim(df_data_type_1)[1]
 N #number of subjects
-parameter_combos_K <- c(rep(10,6), rep(15,6), rep(20),6),rep(25,6), rep(30,6))
+parameter_combos_K <- c(rep(10,6), rep(15,6), rep(20,6),rep(25,6), rep(30,6))
 parameter_combos_alpha <- c(rep(c(0.3, 0.4, 0.5, 0.6, 0.7, 0.8),5))
 
 param_combos <- data.frame(c(1:length(parameter_combos_alpha)), parameter_combos_K, parameter_combos_alpha)
